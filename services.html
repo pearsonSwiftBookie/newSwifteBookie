@@ -16,11 +16,6 @@
     <link rel="stylesheet" href="./styles.css">
 </head>
 <body class="debug">
-    <!-- Debug Info -->
-    <div id="debug-info" style="position: fixed; top: 10px; right: 10px; background: rgba(0,0,0,0.8); color: white; padding: 10px; z-index: 9999; display: none;">
-        <p>Debug Information</p>
-    </div>
-
     <!-- Navigation -->
     <nav class="navbar">
         <div class="container">
@@ -189,7 +184,7 @@
                 </div>
                 <div>
                     <div class="social-links">
-                        <a href="https://www.instagram.com/swiftbookie"><i class="ri-instagram-line"></i></a>
+                        <a href="https://www.instagram.com/swiftbookie" target="_blank"><i class="ri-instagram-line"></i></a>
                     </div>
                 </div>
             </div>
@@ -353,18 +348,6 @@
     </template>
 
     <!-- Scripts -->
-    <script>
-        // Debug helper
-        function debugLog(msg) {
-            const debugInfo = document.getElementById('debug-info');
-            debugInfo.style.display = 'block';
-            const p = document.createElement('p');
-            p.textContent = msg;
-            debugInfo.appendChild(p);
-            console.log(msg);
-        }
-        debugLog('HTML loaded');
-    </script>
     <script src="./services.js" defer></script>
 </body>
 </html> 
