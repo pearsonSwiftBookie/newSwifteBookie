@@ -100,7 +100,7 @@ function toggleDetails(serviceItem) {
     }
 }
 
-// Booking modal functionality
+// Book Now buttons - Redirect to contact.html instead of showing modal
 const bookButtons = document.querySelectorAll('.book-btn');
 const modal = document.querySelector('.booking-modal');
 const closeModal = document.querySelector('.close-modal');
@@ -112,23 +112,12 @@ bookButtons.forEach(button => {
         const serviceName = serviceItem.querySelector('h3').textContent;
         console.log('Book button clicked for:', serviceName);
         
-        const serviceSelect = document.getElementById('booking-service');
-        
-        // Set the selected service in the form
-        Array.from(serviceSelect.options).forEach(option => {
-            if (option.text === serviceName) {
-                option.selected = true;
-            }
-        });
-
-        // Show modal with animation
-        modal.style.display = 'flex';
-        setTimeout(() => {
-            modal.classList.add('active');
-        }, 50);
+        // Redirect to contact page instead of showing modal
+        window.location.href = './contact.html';
     });
 });
 
+// We'll keep this in case we need the modal functionality for other buttons
 closeModal.addEventListener('click', closeBookingModal);
 modal.addEventListener('click', (e) => {
     if (e.target === modal) {
@@ -288,6 +277,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const template = document.getElementById(`${serviceId}-details`);
         if (template) {
             modalContent.innerHTML = template.innerHTML;
+            
+            // Add event listener to any "Schedule a Free Consultation" buttons in the modal
+            setTimeout(() => {
+                const scheduleButtons = document.querySelectorAll('.schedule-btn');
+                scheduleButtons.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        window.location.href = './contact.html';
+                    });
+                });
+            }, 50);
+            
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
